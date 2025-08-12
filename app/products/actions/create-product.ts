@@ -20,6 +20,6 @@ async function uploadProductImage(productId: number, file: File) {
     await fetch(`${API_URL}/products/`, {
         body: formData,
         method: "POST",
-        headers: getHeaders()
+        headers: await getHeaders()
     })
 }

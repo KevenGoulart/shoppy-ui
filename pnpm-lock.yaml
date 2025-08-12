@@ -29,6 +29,9 @@ importers:
       '@stripe/stripe-js':
         specifier: ^7.8.0
         version: 7.8.0
+      Grid2:
+        specifier: link:@mui/material/Grid2
+        version: link:@mui/material/Grid2
       jwt-decode:
         specifier: ^4.0.0
         version: 4.0.0

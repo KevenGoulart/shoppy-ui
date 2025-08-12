@@ -1,9 +1,10 @@
 import Stack from "@mui/material/Stack"
 import getProduct from "./get-product"
-import { Grid, Typography } from "@mui/material"
+import { Typography } from "@mui/material"
 import Image from "next/image"
 import { getProductImage } from "../product-image"
 import Checkout from "@/app/checkout/checkout"
+import Grid from "@mui/material/Grid"
 
 interface SingleProductProps {
     params: Promise<{ productId: string }>
@@ -16,7 +17,7 @@ export default async function SingleProduct({ params }: SingleProductProps) {
     return (
         <Grid container marginBottom={"2rem"} rowGap={3}>
             {product.imageExists && (
-            <Grid>
+            <Grid size={{ sm: 6, lg: 4, xs: 12 }}>
                     <Image
                      src={getProductImage(product.id)}
                      alt="product-image"
@@ -26,7 +27,7 @@ export default async function SingleProduct({ params }: SingleProductProps) {
                      className="w-full sm:w-3/4 h-auto" />
             </Grid>
             )}
-            <Grid>
+            <Grid size={{ sm: 6, lg: 4, xs: 12 }}>
                 <Stack gap={3}>
                     <Typography variant="h2">{product.name}</Typography>
                     <Typography>{product.description}</Typography>
