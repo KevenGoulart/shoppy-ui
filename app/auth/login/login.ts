@@ -21,15 +21,13 @@ export default async function login(
         if (!res.ok) {
             return { error: getErrorMessage(parsedRes) }
         }
-    setAuthCookie(res)
-    redirect("/")
-}
+    
+         const cookiesStore = await cookies()
 
-const setAuthCookie = async (response: Response) => {
-    const setCookieHeader = response.headers.get("Set-Cookie")
+    const setCookieHeader = res.headers.get("Set-Cookie")
     if (setCookieHeader) {
         const token = setCookieHeader.split(";")[0].split("=")[1];
-        (await cookies()).set({
+        cookiesStore.set({
             name: AUTHENTICATION_COOKIE,
             value: token,
             secure: true,
@@ -37,4 +35,7 @@ const setAuthCookie = async (response: Response) => {
             expires: new Date(jwtDecode(token).exp! * 1000),
         })
     }
+
+
+    redirect("/")
 }

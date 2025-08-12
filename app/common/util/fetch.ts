@@ -29,5 +29,8 @@ export const get = async <T>(path: string, tags?: string[], params?: URLSearchPa
         headers: { ...await getHeaders() },
         next: { tags }
     })
+
+    console.log('GET', url, res)
+
     return res.json() as T
 }
