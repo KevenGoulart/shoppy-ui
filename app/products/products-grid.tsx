@@ -36,8 +36,8 @@ export default function ProductsGrid({ products }: ProductGridProps) {
 
     return (
         <Grid container spacing={3} sx={{ height: '85vh', overflow: "scroll"}}>
-            {products.map((product: any) => (
-                <Grid key={product.id} sm={6} lg={4} xs={12}>
+            {products.map((product) => (
+                <Grid key={product.id}>
                     <Product product={product} />
                 </Grid>
             ))}
