@@ -5,8 +5,13 @@ import Image from "next/image"
 import { getProductImage } from "../product-image"
 import Checkout from "@/app/checkout/checkout"
 
-export default async function SingleProduct({ params }: { params: any }) {
-    const product = await getProduct(+params.productId)
+interface SingleProductProps {
+    params: Promise<{ productId: string }>
+}
+
+export default async function SingleProduct({ params }: SingleProductProps) {
+    const { productId } = await params
+    const product = await getProduct(Number(productId))
 
     return (
         <Grid container marginBottom={"2rem"} rowGap={3}>

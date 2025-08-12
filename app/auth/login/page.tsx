@@ -5,7 +5,7 @@ import NextLink from "next/link";
 import { useFormState } from "react-dom";
 
 export default function Login() {
-  const [state, formAction] = useFormState(undefined, { error: "" })
+  const [state, formAction] = useFormState(() => ({ error: null }), { error: null })
 
   return (
     <form action={formAction} className="w-full max-w-xs">
