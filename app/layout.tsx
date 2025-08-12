@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Container, CssBaseline } from "@mui/material";
-
 import Header from "./header/header";
-import Providers from "@/providers";
 import logout from "./auth/logout";
 import authenticated from "./auth/actions/authenticated";
+import Providers from "@/providers";
 
 export const metadata: Metadata = {
   title: "Create Next App",
