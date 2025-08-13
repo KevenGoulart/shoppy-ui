@@ -30,7 +30,5 @@ export const get = async <T>(path: string, tags?: string[], params?: URLSearchPa
         next: { tags }
     })
 
-    console.log('GET', url, res)
-
     return res.json() as T
 }
