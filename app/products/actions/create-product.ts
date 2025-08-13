@@ -17,7 +17,7 @@ export default async function createProduct(formData: FormData) {
 async function uploadProductImage(productId: number, file: File) {
     const formData = new FormData()
     formData.append("image", file)
-    await fetch(`${API_URL}/products/`, {
+    await fetch(`${API_URL}/products/${productId}/image`, {
         body: formData,
         method: "POST",
         headers: await getHeaders()
